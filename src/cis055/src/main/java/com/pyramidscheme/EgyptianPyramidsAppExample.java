@@ -146,7 +146,7 @@ public class EgyptianPyramidsAppExample {
     // Iterate through pyramid array and orint each one
     for (int i = 0; i <pyramidArray.length; i++) {
       printMenuLine();
-      pyramidArray[i].print();
+      pyramidArray[i].print(pharaohArray);
       printMenuLine();
     }
     
@@ -160,7 +160,7 @@ public class EgyptianPyramidsAppExample {
         printAllPharaoh();
         break;
       case '2':
-        // Insert method to print specific pharaoh
+        // Insert method to print specific pharaoh by ID
         break;
       case '3':
         printAllPyramids();
@@ -207,4 +207,6 @@ public class EgyptianPyramidsAppExample {
     printMenuCommand('q', "Quit");
     printMenuLine();
   }
+
+  
 }

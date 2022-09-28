@@ -19,13 +19,29 @@ public class Pyramid {
     contributors = pyramidContributors;
   }
 
+  public String contributionInfo(String contributor, Pharaoh[] pharaohArray) {
+    String info = "";
+    for (Pharaoh person: pharaohArray) {
+      if (contributor.compareTo(person.hieroglyphic) == 0) {
+        info = person.name;
+      }
+    }
+    return info;
+  }
   // print pyramid
-  public void print() {
+  // Need to update to print off 
+  // Pyramid Namw
+  // ID
+  // Contributor by name with amount of gold
+  // Total contributions
+  public void print(Pharaoh[] pharaohArray) {
+    String info = "Dude";
     System.out.printf("%s Pyramid\n", name);
     System.out.printf("\tid:\t\t%d\n", id);
-    System.out.printf("\tcontributors:\t%s\n", contributors[0]);
-    for (int i = 1; i < contributors.length; i++){
-      System.out.printf("\t\t\t%s\n", contributors[i]);
+    System.out.printf("\tcontributors: ");
+    for (int i = 0; i < contributors.length; i++){
+      info = contributionInfo(contributors[i], pharaohArray);
+      System.out.println(info);
     }
   }
 }
