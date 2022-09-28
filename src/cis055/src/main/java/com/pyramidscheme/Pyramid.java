@@ -28,6 +28,16 @@ public class Pyramid {
     }
     return info;
   }
+
+  public Integer contributionTotal(String contributor, Pharaoh[] pharaohArray) {
+    Integer contribution = 0;
+    for (Pharaoh person: pharaohArray) {
+      if (contributor.compareTo(person.hieroglyphic) == 0) {
+        contribution = person.contribution;
+      }
+    }
+    return contribution;
+  }
   // print pyramid
   // Need to update to print off 
   // Pyramid Namw
@@ -36,12 +46,15 @@ public class Pyramid {
   // Total contributions
   public void print(Pharaoh[] pharaohArray) {
     String info = "";
+    // Initialize with first contribution value
+    Integer total = 0;
     System.out.printf("%s Pyramid\n", name);
     System.out.printf("\tid:\t\t%d\n", id);
-    System.out.printf("\tcontributors: \t%s\n", contributionInfo(contributors[0], pharaohArray));
-    for (int i = 1; i < contributors.length; i++){
+    for (int i = 0; i < contributors.length; i++){
       info = contributionInfo(contributors[i], pharaohArray);
-      System.out.printf("\t\t\t%s\n",info);
+      total += contributionTotal(contributors[i], pharaohArray);
+      System.out.printf("\tcontributor %d: \t%s\n", i+1, contributionInfo(contributors[i], pharaohArray));
     }
+    System.out.printf("\tTotal:\t\t%d Gold Coins\n", total);
   }
 }
