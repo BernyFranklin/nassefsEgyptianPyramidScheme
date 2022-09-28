@@ -151,6 +151,15 @@ public class EgyptianPyramidsAppExample {
       case '2':
         // Insert method to print specific pharaoh
         break;
+      case '3':
+        // Insert method to print all pyramids
+        break;
+      case '4':
+        // Insert method to print specific pyramid
+        break;
+      case '5':
+        // Insert method to print list of requested pyramids
+        break;
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
         break;
