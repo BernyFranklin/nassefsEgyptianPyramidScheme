@@ -1,3 +1,4 @@
+// Pyramid.java is a class that creates objects of type Pyramid
 package com.pyramidscheme;
 
 // pyramid class, that corresponds to the information in the json file

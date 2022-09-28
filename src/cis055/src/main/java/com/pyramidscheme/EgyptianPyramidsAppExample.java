@@ -1,3 +1,12 @@
+/*
+ * nassefsPyramidApp
+ * Frank Bernal
+ * CIS-055
+ * Date Started: 28 Sep 2022
+ * Date Finished: 
+ */
+
+ // EgyptianPyramidsAppExample.java has the main method for the entire app included with functions for the menu
 package com.pyramidscheme;
 
 import java.util.*;
@@ -139,6 +148,9 @@ public class EgyptianPyramidsAppExample {
       case '1':
         printAllPharaoh();
         break;
+      case '2':
+        // Insert method to print specific pyramid
+        break;
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
         break;
@@ -167,7 +179,8 @@ public class EgyptianPyramidsAppExample {
     printMenuLine();
     System.out.printf("Command\t\tDescription\n");
     System.out.printf("-------\t\t---------------------------------------\n");
-    printMenuCommand('1', "List all the pharoahs");
+    printMenuCommand('1', "List All Pharoahs");
+    printMenuCommand('2', "Display a Specific Pyramid");
     printMenuCommand('q', "Quit");
     printMenuLine();
   }

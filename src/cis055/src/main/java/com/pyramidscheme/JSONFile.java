@@ -1,3 +1,4 @@
+// JSONFile.java is a class used to read JSON files, parse, and tranfer into an array
 package com.pyramidscheme;
 
 import java.io.*;
