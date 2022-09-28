@@ -149,7 +149,7 @@ public class EgyptianPyramidsAppExample {
         printAllPharaoh();
         break;
       case '2':
-        // Insert method to print specific pyramid
+        // Insert method to print specific pharaoh
         break;
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
@@ -180,7 +180,10 @@ public class EgyptianPyramidsAppExample {
     System.out.printf("Command\t\tDescription\n");
     System.out.printf("-------\t\t---------------------------------------\n");
     printMenuCommand('1', "List All Pharoahs");
-    printMenuCommand('2', "Display a Specific Pyramid");
+    printMenuCommand('2', "Display a Specific Pharaoh");
+    printMenuCommand('3', "List all Pyramids");
+    printMenuCommand('4', "Display a Specific Pyramid");
+    printMenuCommand('5', "Display List of Requested Pyramids");
     printMenuCommand('q', "Quit");
     printMenuLine();
   }
