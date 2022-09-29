@@ -45,13 +45,12 @@ public class Pyramid {
   // Contributor by name with amount of gold
   // Total contributions
   public void print(Pharaoh[] pharaohArray) {
-    String info = "";
+    
     // Initialize with first contribution value
     Integer total = 0;
     System.out.printf("%s Pyramid\n", name);
     System.out.printf("\tid:\t\t%d\n", id);
     for (int i = 0; i < contributors.length; i++){
-      info = contributionInfo(contributors[i], pharaohArray);
       total += contributionTotal(contributors[i], pharaohArray);
       System.out.printf("\tcontributor %d: \t%s\n", i+1, contributionInfo(contributors[i], pharaohArray));
     }

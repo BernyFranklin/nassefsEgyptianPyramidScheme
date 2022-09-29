@@ -11,6 +11,7 @@ package com.pyramidscheme;
 
 import java.util.*;
 import org.json.simple.*;
+import java.util.InputMismatchException;
 
 public class EgyptianPyramidsAppExample {
 
@@ -132,13 +133,48 @@ public class EgyptianPyramidsAppExample {
     return command;
   }
 
+  // get valid integer id
+  private Integer getValidID(Scanner scan) {
+    Integer id = 0;
+    boolean isNumeric = false;
+    while (!isNumeric) {
+      try {
+        System.out.printf("Please enter valid ID: ");
+        id = scan.nextInt();
+        isNumeric = true;
+      } catch (InputMismatchException e) {
+        isNumeric = false;
+        System.out.println("Input may only be numeric, please try again");
+      }
+    }
+    return id;
+  }
+
   // print all pharaohs
   private void printAllPharaoh() {
     for (int i = 0; i < pharaohArray.length; i++) {
       printMenuLine();
       pharaohArray[i].print();
-      printMenuLine();
     }
+  }
+
+  // print one pharaoh
+  private void printOnePharaoh(Scanner scan) {
+    Integer id = 0;
+    id = getValidID(scan);
+    boolean found = false;
+    for (Pharaoh person: pharaohArray) {
+      if (id.compareTo(person.id) == 0) {
+        found = true;
+        printMenuLine();
+        person.print();
+      }
+    }
+    if (!found) {
+      System.out.printf("There are no Pharaohs with the ID of %d\n", id);
+    }
+    // Clear buffer
+    scan.nextLine();
   }
 
   // print all pyramids
@@ -147,9 +183,7 @@ public class EgyptianPyramidsAppExample {
     for (int i = 0; i <pyramidArray.length; i++) {
       printMenuLine();
       pyramidArray[i].print(pharaohArray);
-      printMenuLine();
     }
-    
   }
 
   private Boolean executeCommand(Scanner scan, Character command) {
@@ -160,7 +194,7 @@ public class EgyptianPyramidsAppExample {
         printAllPharaoh();
         break;
       case '2':
-        // Insert method to print specific pharaoh by ID
+        printOnePharaoh(scan);
         break;
       case '3':
         printAllPyramids();
