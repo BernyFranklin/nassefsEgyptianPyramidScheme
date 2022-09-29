@@ -2,11 +2,11 @@
  * nassefsPyramidApp
  * Frank Bernal
  * CIS-055
- * Date Started: 28 Sep 2022
- * Date Finished: 
+ * Date Started:  28 Sep 2022
+ * Date Finished: 29 Sep 2022
  */
 
- // EgyptianPyramidsAppExample.java has the main method for the entire app included with functions for the menu
+ // NassefsPyramidApp.java has the main method for the entire app included with functions for the menu
 package com.pyramidscheme;
 
 import java.util.*;
@@ -20,6 +20,7 @@ public class NassefsPyramidApp {
   // other structures or additional structures can be used
   protected Pharaoh[] pharaohArray;
   protected Pyramid[] pyramidArray;
+  protected HashSet<Pyramid> requestedPyramids = new HashSet<Pyramid>();
 
   // Main method
   public static void main(String[] args) {
@@ -210,6 +211,8 @@ public class NassefsPyramidApp {
         found = true;
         printMenuLine();
         elem.print(pharaohArray);
+        // Add pyramid to set
+        requestedPyramids.add(elem);
       }
     }
     if (!found) {
@@ -218,6 +221,24 @@ public class NassefsPyramidApp {
     }
     // Clear buffer
     scan.nextLine();
+  }
+
+  // print all requested pyramids with no repeats
+  private void printRequestedPyramids() {
+    if (requestedPyramids.isEmpty()) {
+      System.out.printf("\nNo pyramids have been requested yet\n");
+    }
+    else {
+      printMenuLine();
+      System.out.println("List of previously requested pyramids");
+      printMenuLine();
+      System.out.printf("ID\t\tName");
+      System.out.printf("\n----\t\t-------\n");
+      // iterate through set and print data
+      for(Pyramid pyramid: requestedPyramids) {
+        System.out.printf("%d\t\t%s Pyramid\n", pyramid.id, pyramid.name);
+      }
+    }
   }
 
   // take input and execute the appropriate command
@@ -238,7 +259,7 @@ public class NassefsPyramidApp {
         printOnePyramid(scan);
         break;
       case '5':
-        // Insert method to print list of requested pyramids
+        printRequestedPyramids();
         break;
       case 'q':
         System.out.println("Thank you for using Nassef's Egyptian Pyramid App!");
@@ -271,7 +292,7 @@ public class NassefsPyramidApp {
     System.out.printf("-------\t\t-----------------------------------------------------------------------\n");
     printMenuCommand('1', "List All Pharoahs");
     printMenuCommand('2', "Display a Specific Pharaoh");
-    printMenuCommand('3', "List all Pyramids");
+    printMenuCommand('3', "List All Pyramids");
     printMenuCommand('4', "Display a Specific Pyramid");
     printMenuCommand('5', "Display List of Requested Pyramids");
     printMenuCommand('q', "Quit");
