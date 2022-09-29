@@ -143,7 +143,11 @@ public class EgyptianPyramidsAppExample {
         id = scan.nextInt();
         isNumeric = true;
       } catch (InputMismatchException e) {
+        // Set Flag
         isNumeric = false;
+        // Clear Buffer
+        scan.nextLine();
+        // Alert user
         System.out.println("Input may only be numeric, please try again");
       }
     }
@@ -186,6 +190,25 @@ public class EgyptianPyramidsAppExample {
     }
   }
 
+  // print one pyramid
+  private void printOnePyramid(Scanner scan) {
+    Integer id = 0;
+    id = getValidID(scan);
+    boolean found = false;
+    for (Pyramid elem: pyramidArray) {
+      if (id.compareTo(elem.id) == 0) {
+        found = true;
+        printMenuLine();
+        elem.print(pharaohArray);
+      }
+    }
+    if (!found) {
+      System.out.printf("There are no Pyramids with the ID of %d\n", id);
+    }
+    // Clear buffer
+    scan.nextLine();
+  }
+
   private Boolean executeCommand(Scanner scan, Character command) {
     Boolean success = true;
 
@@ -200,7 +223,7 @@ public class EgyptianPyramidsAppExample {
         printAllPyramids();
         break;
       case '4':
-        // Insert method to print specific pyramid
+        printOnePyramid(scan);
         break;
       case '5':
         // Insert method to print list of requested pyramids
@@ -222,7 +245,7 @@ public class EgyptianPyramidsAppExample {
 
   private static void printMenuLine() {
     System.out.println(
-      "--------------------------------------------------------------------------"
+      "---------------------------------------------------------------------------------------"
     );
   }
 
@@ -232,7 +255,7 @@ public class EgyptianPyramidsAppExample {
     System.out.println("Nassef's Egyptian Pyramids App");
     printMenuLine();
     System.out.printf("Command\t\tDescription\n");
-    System.out.printf("-------\t\t---------------------------------------\n");
+    System.out.printf("-------\t\t-----------------------------------------------------------------------\n");
     printMenuCommand('1', "List All Pharoahs");
     printMenuCommand('2', "Display a Specific Pharaoh");
     printMenuCommand('3', "List all Pyramids");
