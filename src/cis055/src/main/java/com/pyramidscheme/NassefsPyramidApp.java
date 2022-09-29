@@ -13,7 +13,7 @@ import java.util.*;
 import org.json.simple.*;
 import java.util.InputMismatchException;
 
-public class EgyptianPyramidsAppExample {
+public class NassefsPyramidApp {
 
 
   // I've used two arrays here for O(1) reading of the pharaohs and pyramids.
@@ -21,9 +21,10 @@ public class EgyptianPyramidsAppExample {
   protected Pharaoh[] pharaohArray;
   protected Pyramid[] pyramidArray;
 
+  // Main method
   public static void main(String[] args) {
     // create and start the app
-    EgyptianPyramidsAppExample app = new EgyptianPyramidsAppExample();
+    NassefsPyramidApp app = new NassefsPyramidApp();
     app.start();
   }
 
@@ -43,7 +44,7 @@ public class EgyptianPyramidsAppExample {
   }
 
   // constructor to initialize the app and read commands
-  public EgyptianPyramidsAppExample() {
+  public NassefsPyramidApp() {
     // read egyptian pharaohs
     String pharaohFile =
       "src/main/java/com/pyramidscheme/pharaoh.json";
@@ -156,6 +157,7 @@ public class EgyptianPyramidsAppExample {
 
   // print all pharaohs
   private void printAllPharaoh() {
+    // iterate and print each pharaoh
     for (int i = 0; i < pharaohArray.length; i++) {
       printMenuLine();
       pharaohArray[i].print();
@@ -165,16 +167,21 @@ public class EgyptianPyramidsAppExample {
   // print one pharaoh
   private void printOnePharaoh(Scanner scan) {
     Integer id = 0;
+    // Get valid input
     id = getValidID(scan);
+    // prime the loop
     boolean found = false;
+    //iterate through each pharaoh and print the match
     for (Pharaoh person: pharaohArray) {
       if (id.compareTo(person.id) == 0) {
+        // set flag to break loop
         found = true;
         printMenuLine();
         person.print();
       }
     }
     if (!found) {
+      // alert user if not found
       System.out.printf("There are no Pharaohs with the ID of %d\n", id);
     }
     // Clear buffer
@@ -193,8 +200,11 @@ public class EgyptianPyramidsAppExample {
   // print one pyramid
   private void printOnePyramid(Scanner scan) {
     Integer id = 0;
+    // get valid input
     id = getValidID(scan);
+    // prime loop
     boolean found = false;
+    // iterate through pyramids and print the match
     for (Pyramid elem: pyramidArray) {
       if (id.compareTo(elem.id) == 0) {
         found = true;
@@ -203,12 +213,14 @@ public class EgyptianPyramidsAppExample {
       }
     }
     if (!found) {
+      // alert user if not found
       System.out.printf("There are no Pyramids with the ID of %d\n", id);
     }
     // Clear buffer
     scan.nextLine();
   }
 
+  // take input and execute the appropriate command
   private Boolean executeCommand(Scanner scan, Character command) {
     Boolean success = true;
 
@@ -239,14 +251,15 @@ public class EgyptianPyramidsAppExample {
     return success;
   }
 
+  // Formats menu commands
   private static void printMenuCommand(Character command, String desc) {
     System.out.printf("%s\t\t%s\n", command, desc);
   }
 
+  // prints a big ol' line
   private static void printMenuLine() {
     System.out.println(
-      "---------------------------------------------------------------------------------------"
-    );
+      "---------------------------------------------------------------------------------------");
   }
 
   // prints the menu
@@ -264,6 +277,4 @@ public class EgyptianPyramidsAppExample {
     printMenuCommand('q', "Quit");
     printMenuLine();
   }
-
-  
 }

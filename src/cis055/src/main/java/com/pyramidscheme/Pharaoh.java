@@ -1,4 +1,4 @@
-// Pharaoh.java is a class that creates objects of typ Pharaoh
+// Pharaoh.java is a class that creates objects of type Pharaoh
 package com.pyramidscheme;
 
 // pharoah class, that corresponds to the information in the json file
