@@ -32,11 +32,11 @@ public class Pharaoh {
   // print pharaoh
   public void print() {
     System.out.printf("Pharaoh %s\n", name);
-    System.out.printf("\tid: %d\n", id);
-    System.out.printf("\tbegin: %d B.C.\n", begin);
-    System.out.printf("\tend: %d B.C.\n", end);
-    System.out.printf("\tcontribution: %d gold coins\n", contribution);
-    System.out.printf("\thieroglyphic: %s\n", hieroglyphic);
+    System.out.printf("\tID:\t\t%d\n", id);
+    System.out.printf("\tBegin:\t\t%d B.C.\n", begin);
+    System.out.printf("\tEnd:\t\t%d B.C.\n", end);
+    System.out.printf("\tContribution:\t%d gold coins\n", contribution);
+    System.out.printf("\tHieroglyphic:\t%s\n", hieroglyphic);
   }
 
 }
