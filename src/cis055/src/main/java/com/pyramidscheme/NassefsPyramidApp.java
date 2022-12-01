@@ -48,7 +48,7 @@ public class NassefsPyramidApp {
   public NassefsPyramidApp() {
     // read egyptian pharaohs
     String pharaohFile =
-      "src/main/java/com/pyramidscheme/pharaoh.json";
+      "/Users/frankbernal/Documents/GitHub/sjccFall22/nassefsEgyptianPyramidScheme/src/cis055/src/main/java/com/pyramidscheme/pharaoh.json";
     JSONArray pharaohJSONArray = JSONFile.readArray(pharaohFile);
 
     // create and intialize the pharaoh array
@@ -56,7 +56,7 @@ public class NassefsPyramidApp {
 
     // read pyramids
     String pyramidFile =
-      "src/main/java/com/pyramidscheme/pyramid.json";
+      "/Users/frankbernal/Documents/GitHub/sjccFall22/nassefsEgyptianPyramidScheme/src/cis055/src/main/java/com/pyramidscheme/pyramid.json";
     JSONArray pyramidJSONArray = JSONFile.readArray(pyramidFile);
 
     // create and initialize the pyramid array
